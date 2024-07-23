@@ -1,2 +1,2 @@
 # Salon_Booking
-A full stack project 
+A MERN stack project with CRUD operations 
