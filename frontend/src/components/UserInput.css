@@ -165,3 +165,17 @@ details ul li .link-icon {
     grid-template-columns: 20px 1fr;
     align-items: center;
 }
+
+@media (max-width: 768px) {
+    .appointmentbox {
+        grid-template-columns: 1fr; /* Switch to a single column layout */
+    }
+
+    .first, .second {
+        width: 100%; /* Ensure both sections take full width */
+    }
+
+    .second {
+        margin-top: 20px; /* Add space between the sections */
+    }
+}
