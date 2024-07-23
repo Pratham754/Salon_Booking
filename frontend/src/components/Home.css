@@ -1,0 +1,56 @@
+.welcome {
+    height: 100vh;
+}
+
+.wc {
+    color: aliceblue;
+    font-size: 48px;
+    margin: 0;
+}
+
+.welcome p {
+    color: rgb(100, 100, 100);
+    font-weight: bold;
+}
+
+.bot {
+    background-color: rgb(76, 0, 76);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.info {
+    background-color: rgb(30, 0, 30);
+    color: darkgrey;
+    height: 150px;
+    display: grid;
+}
+
+.infolist a{
+    color: inherit;
+}
+
+.infolist ul{
+    list-style: none;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.infolist ul li{
+    gap: 10px;
+    text-align: left;
+    margin: 5px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+}
+
+.bot h6 {
+    margin: 0.5rem;
+    color: lightgray;
+}

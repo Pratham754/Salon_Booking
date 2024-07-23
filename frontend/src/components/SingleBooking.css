@@ -1,0 +1,8 @@
+.edit h2{
+    color: "white";
+    font-family: "montserrat thin";
+    text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff; 
+}
+label {
+    color: aliceblue;
+}
