@@ -20,7 +20,7 @@ function SingleBooking() {
 
     // Step 2: To perform Search based on the ID
     useEffect(() => {
-        axios.get(`https://salon-booking-backend-8k3e.onrender.com/myBooking/booking/${id}`)
+        axios.get(`http://localhost:7700/myBooking/booking/${id}`)
             .then((response) => {
                 // console.log(response.data);
                 setBooking(response.data);
@@ -39,7 +39,7 @@ function SingleBooking() {
         }
 
         try {
-            const response = await axios.put(`https://salon-booking-backend-8k3e.onrender.com/myBooking/booking_edit/${id}`, update_booking);
+            const response = await axios.put(`http://localhost:7700/myBooking/booking_edit/${id}`, update_booking);
             setMsgReceive(response.data);
             toast.success('Appointment updated successfully!', {
                 onClose: () => {

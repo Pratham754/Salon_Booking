@@ -1,15 +1,24 @@
-import "./Home.css";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMap, faPhone } from '@fortawesome/free-solid-svg-icons';
-import {faInstagram} from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from "react-router-dom";
+import "./Home.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
+    const nav = useNavigate();
+
     return (
         <div>
 
             <section className="welcome">
-                <h1 className="wc">Welcome Aboard !</h1>
-                <p>Welcome To The Luxury Experience</p>
+                <h1 className="wc">HairExpert&Co!</h1>
+                <p>Welcomes You To The Luxury Experience</p>
+                <div className="buttons">
+                    <button className="btn btn-primary" onClick={() => nav('/input')}>Book us</button>
+                    <button className="btn btn-primary" onClick={() => nav('/about-us')}>HairExpert&Co</button>
+                </div>
             </section>
 
             <div className="info">
@@ -25,7 +34,7 @@ const Home = () => {
 
             <div className="bot">
                 <h6>
-                ©2024 HairExpert Salon All rights reserved. by Pratham Choudhary
+                    ©2024 HairExpert&Co Salon All rights reserved. by Pratham Choudhary
                 </h6>
             </div>
 

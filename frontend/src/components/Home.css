@@ -13,6 +13,27 @@
     font-weight: bold;
 }
 
+.buttons{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #007bff, blueviolet 70%) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    margin-top: 50px;
+    width: 300px;
+    -webkit-transition: background 0.5s ease !important; /* Ensure transition is applied */
+    transition: background 0.5s ease !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, blueviolet, #007bff 70%) !important;
+}
+
+
 .bot {
     background-color: rgb(76, 0, 76);
     height: 50px;

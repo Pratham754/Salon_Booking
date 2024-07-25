@@ -25,7 +25,7 @@ const UserInput = () => {
     //Fetching appointments from server
     const fetchBooking = async ()=>{
         try{
-            const response = await axios.get(`https://salon-booking-backend-8k3e.onrender.com/myBooking/booking`);
+            const response = await axios.get(`http://localhost:7700/myBooking/booking`);
             const sortedAppointments = response.data.message.sort((a, b) => new Date(a.date) - new Date(b.date));
             setOutput(sortedAppointments);
             setLoading(false);
@@ -52,7 +52,7 @@ const UserInput = () => {
 
         try {
             const response = await axios.post(
-                "https://salon-booking-backend-8k3e.onrender.com/myBooking/booking_add",
+                "http://localhost:7700/myBooking/booking_add",
                 booking,
                 {headers: { "Content-Type": "application/json" }}
             );
@@ -70,7 +70,7 @@ const UserInput = () => {
 
     const DeleteBooking = async (itemId) => {
         try {
-            const response = await axios.delete(`https://salon-booking-backend-8k3e.onrender.com/myBooking/booking/${itemId}`);
+            const response = await axios.delete(`http://localhost:7700/myBooking/booking/${itemId}`);
             toast.success("Appointment deleted successfully!");
             fetchBooking();
             console.log(response.data);
