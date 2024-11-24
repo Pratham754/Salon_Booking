@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .appointmentbox {
-    margin-top: 100px;
-    margin-bottom: 20px;
+    margin: 20px;
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 20px;
@@ -10,38 +11,58 @@
 }
 
 .first {
-    background-color: rgba(10, 10, 10, 0.7);
+    background-color: rgba(10, 10, 10, 0.8);
     color: aliceblue;
+    margin-top: 20%;
     padding: 20px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: calc(100vh - 200px);
-    
+    max-height: 500px; /* Make the height fixed or minimum so it doesn't grow */
+    position: sticky;
+    top: 20px; /* Adjust this value based on how much space you want at the top */
+    z-index: 10; /* Ensure it stays above other content */
 }
 
-.first h2{
+.first h2 {
     color: "white";
     font-family: "montserrat thin";
-    text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff; 
+    text-shadow: 0 0 10px #00c3ff76, 0 0 20px #00c3ffc8;
 }
 
 .first form {
     text-align: left;
-    width: 100%; /* Ensure form takes full width of its container */
-    max-width: 300px; /* Limit form width for better readability */
-    margin-top: calc((100vh - 100px - 350px) / 2);
-
-
+    width: 100%;
+    max-width: 300px;
+    margin-top: 75px;
 }
 
-.first input, .first button {
+.first input, .first button, .first select {
     border-radius: 10px;
     background-color: aliceblue;
     width: 100%;
     max-width: 100%;
-    margin-bottom: 10px; /* Space between input fields and button */
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.first select {
+    appearance: none; /* Remove default dropdown styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px; /* Add space for the dropdown arrow */
+}
+
+.first input:focus, .first select:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove the default outline */
+}
+
+.first button {
+    cursor: pointer;
 }
 
 .second h1 {
@@ -66,13 +87,15 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    max-height: calc(100vh - 120px); /* Limit the height of the container */
+    overflow-y: auto; /* Allow scrolling */
 }
 
 .booking-item {
-    border: 1px solid black;
+    border: 1px solid #ccc; /* Light border for booking item */
     border-radius: 15px;
-    background-color: black;
-    padding: 3px;
+    background-color: #2a2a2a; /* Deep gray */
+    padding: 20px;
     position: relative;
     box-sizing: border-box;
 }
@@ -80,51 +103,51 @@
 .booking-controls {
     background-color: transparent;
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 10px;
+    right: 15px;
     z-index: 1;
     cursor: pointer;
 }
 
-.booking-date{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px;
-    background-color: gold;
-    font-weight: bold;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.booking-name{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 5px;
-    background-color: gold;
-    font-weight: bold;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.booking-content {
+.booking-date {
+    background-color: #f1c40f; /* Soft Gold */
+    color: #333; /* Dark gray text for contrast */
     padding: 10px;
-    color: rgb(90, 90, 90);
-    background-color: bisque;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.booking-name {
+    background-color: #f1c40f; /* Soft Gold */
+    color: #333; /* Dark gray text for contrast */
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.booking-content {
+    padding: 15px;
+    background-color: #f7f1e1; /* Light cream / beige */
+    color: #333;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px;
     min-height: 100px;
+    margin-bottom: 10px;
+}
+
+details {
     position: relative;
 }
 
-details{
-    position: relative;
-}
-
-details summary{
+details summary {
     list-style: none;
 }
 
-details ul{
+details ul {
     z-index: 1;
     position: absolute;
     right: -10px;
@@ -138,7 +161,7 @@ details ul{
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
-details ul li{
+details ul li {
     gap: 5px;
     border-radius: 5px;
     width: 100px;
@@ -152,10 +175,9 @@ details ul li{
     align-items: center;
 }
 
-details ul li:hover{
+details ul li:hover {
     background-color: darkgray;
 }
-
 
 details ul li .link-icon {
     text-decoration: none;
@@ -168,14 +190,14 @@ details ul li .link-icon {
 
 @media (max-width: 768px) {
     .appointmentbox {
-        grid-template-columns: 1fr; /* Switch to a single column layout */
+        grid-template-columns: 1fr;
     }
 
     .first, .second {
-        width: 100%; /* Ensure both sections take full width */
+        width: 100%;
     }
 
     .second {
-        margin-top: 20px; /* Add space between the sections */
+        margin-top: 20px;
     }
 }

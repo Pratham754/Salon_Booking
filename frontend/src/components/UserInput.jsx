@@ -18,18 +18,29 @@ const UserInput = () => {
     const [loading, setLoading] = useState(true);
     const [output, setOutput] = useState([]);
 
-    useEffect(()=>{
-        fetchBooking();
-    },[]);
+    // Available services for dropdown
+    const services = [
+        "Hair Cut",
+        "Hair Coloring",
+        "Hair Styling",
+        "Shampoo & Conditioning",
+        "Facial",
+        "Manicure/Pedicure",
+        "Hair Treatment"
+    ];
 
-    //Fetching appointments from server
-    const fetchBooking = async ()=>{
-        try{
+    useEffect(() => {
+        fetchBooking();
+    }, []);
+
+    // Fetching appointments from server
+    const fetchBooking = async () => {
+        try {
             const response = await axios.get(`https://salon-booking-nd96.onrender.com/myBooking/booking`);
             const sortedAppointments = response.data.message.sort((a, b) => new Date(a.date) - new Date(b.date));
             setOutput(sortedAppointments);
             setLoading(false);
-        } catch (error){
+        } catch (error) {
             console.log(error);
             toast.error("Failed to fetch appointments");
         }
@@ -54,7 +65,7 @@ const UserInput = () => {
             const response = await axios.post(
                 "https://salon-booking-nd96.onrender.com/myBooking/booking_add",
                 booking,
-                {headers: { "Content-Type": "application/json" }}
+                { headers: { "Content-Type": "application/json" } }
             );
 
             setMsgReceive(response.data);
@@ -79,11 +90,11 @@ const UserInput = () => {
             toast.error("Failed to delete Appointment");
         }
     };
-    
+
     return (
         <div className="appointmentbox">
             <div className="first">
-                <h2>
+                <h2 style={{ fontFamily: "Montserrat" }}>
                     Schedule Appointment
                 </h2>
                 <form onSubmit={handleSubmit}>
@@ -91,8 +102,13 @@ const UserInput = () => {
                     <input type="date" name="date" placeholder="Enter Date" min={booking.date} onChange={handleChange} /><br />
                     Enter Name
                     <input type="text" name="name" placeholder="Enter Name" onChange={handleChange} /><br />
-                    Enter Service
-                    <input type="text" name="content" placeholder="Enter Service" onChange={handleChange} /><br /><br />
+                    Select Service
+                    <select name="content" onChange={handleChange} value={booking.content}>
+                        <option value="">Select a Service</option>
+                        {services.map((service, index) => (
+                            <option key={index} value={service}>{service}</option>
+                        ))}
+                    </select><br /><br />
                     <button type="submit">Submit</button>
                 </form>
 
@@ -112,8 +128,8 @@ const UserInput = () => {
                 </div>
             ) : (
                 <div className="second">
-                    <h1>
-                        YOUR APPOINTMENTS
+                    <h1 style={{ fontFamily: "Montserrat" }}>
+                        Your Appointments
                     </h1>
                     <div className="container">
                         {Array.isArray(output) && output.map((item, index) => (
@@ -137,7 +153,7 @@ const UserInput = () => {
                                         </li>
                                     </ul>
                                 </details>
-                                
+
                                 <div className="booking-date">{format(new Date(item.date), 'dd-MM-yyyy')}</div>
                                 <div className="booking-content">{item.content}</div>
                                 <div className="booking-name">{item.name}</div>
